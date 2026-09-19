@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nexibeo/brandshot/main/brand.schema.json",
+  "name": "Acme Labs",
+  "wordmark": "acme*labs*",
+  "headline": "Tools that make\nyour team *faster*",
+  "tagline": "",
+  "url": "acmelabs.com",
+  "logo": "",
+  "theme": {
+    "background": "#0E1116",
+    "text": "#E6EAF0",
+    "muted": "#8D99A9",
+    "accent": "#FF7A1A",
+    "accent2": "#35D6C3"
+  },
+  "palette": ["#FF7A1A", "#35D6C3", "#9A7BFF", "#FFC857"],
+  "fonts": { "display": "Archivo:800", "mono": "IBM Plex Mono:500" },
+  "tiles": { "style": "shapes", "items": [] },
+  "background": { "grid": true, "glow": true }
+}

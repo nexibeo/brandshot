@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>brandshot studio</title>
+<meta name="description" content="Design every social profile picture, banner and post from one brand, at each platform's exact size. Runs in your browser; nothing is uploaded." />
+<meta property="og:title" content="brandshot studio" />
+<meta property="og:description" content="Every social profile picture, banner and post from one brand config, at each platform's exact spec." />
+<meta property="og:image" content="https://nexibeo.github.io/brandshot/assets/og-image.png" />
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="studio.css" />
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="https://github.com/nexibeo/brandshot" aria-label="brandshot on GitHub">
+    <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><rect x="7" y="10" width="18" height="12" rx="3" fill="none" stroke="var(--on-accent)" stroke-width="2.2"/><rect x="10" y="13" width="7" height="6" rx="1.5" fill="var(--on-accent)"/><path d="M19.5 14.5h3M19.5 17.5h3" stroke="var(--on-accent)" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>brand<b>shot</b></span>
+  </a>
+  <p class="lede">One brand in, every social image out, each at its platform's exact size.</p>
+  <div class="actions">
+    <button type="button" id="copyLink" class="ghost" title="Copy a link that opens the studio with this brand">Copy link</button>
+    <button type="button" id="exportJson" class="ghost" title="Download brand.json for the CLI">brand.json</button>
+    <label class="ghost button" title="Load a brand.json">Import<input type="file" id="importJson" accept="application/json,.json" hidden /></label>
+    <button type="button" id="downloadAll" class="primary">Download all <span id="countAll"></span></button>
+  </div>
+</header>
+
+<main class="layout">
+  <form id="form" class="panel" autocomplete="off">
+    <section>
+      <h2>Brand</h2>
+      <label>Name <input name="name" placeholder="Acme Labs" /></label>
+      <label>Wordmark <input name="wordmark" placeholder="acme*labs*" /><small>Wrap words in <code>*stars*</code> to colour them with the accent.</small></label>
+      <label>Headline <textarea name="headline" rows="3" placeholder="Tools that make&#10;your team *faster*"></textarea><small>A line break here is a line break on every image.</small></label>
+      <label>Tagline <input name="tagline" placeholder="Optional second line" /></label>
+      <label>Website <input name="url" placeholder="acmelabs.com" /></label>
+      <div class="logo-row">
+        <label class="file">Logo <input type="file" id="logoFile" accept="image/svg+xml,image/png,image/jpeg,image/webp" /></label>
+        <button type="button" id="clearLogo" class="link">Remove</button>
+      </div>
+      <small class="hint">SVG or a square PNG. Without one, a monogram is drawn from the name.</small>
+    </section>
+
+    <section>
+      <h2>Colours</h2>
+      <div class="presets" id="presets" role="group" aria-label="Colour presets"></div>
+      <div class="swatches">
+        <label><input type="color" name="theme.background" /> Background</label>
+        <label><input type="color" name="theme.text" /> Text</label>
+        <label><input type="color" name="theme.muted" /> Muted</label>
+        <label><input type="color" name="theme.accent" /> Accent</label>
+        <label><input type="color" name="theme.accent2" /> Second accent</label>
+      </div>
+      <label>Tile palette <input name="palette" placeholder="#FF7A1A, #35D6C3, #9A7BFF" /><small>Comma-separated. Tiles cycle through these colours.</small></label>
+      <div class="checks">
+        <label><input type="checkbox" name="background.grid" /> Grid</label>
+        <label><input type="checkbox" name="background.glow" /> Glow</label>
+      </div>
+    </section>
+
+    <section>
+      <h2>Type</h2>
+      <div class="pair">
+        <label>Display font <input name="fonts.displayFamily" list="fontList" /></label>
+        <label>Weight <select name="fonts.displayWeight"><option>500</option><option>600</option><option>700</option><option>800</option><option>900</option></select></label>
+      </div>
+      <div class="pair">
+        <label>Mono font <input name="fonts.monoFamily" list="fontList" /></label>
+        <label>Weight <select name="fonts.monoWeight"><option>400</option><option>500</option><option>600</option></select></label>
+      </div>
+      <small>Any family from <a href="https://fonts.google.com" target="_blank" rel="noopener">Google Fonts</a>.</small>
+      <datalist id="fontList"></datalist>
+    </section>
+
+    <section>
+      <h2>Tiles</h2>
+      <div class="seg" role="radiogroup" aria-label="Tile style" id="tileStyle">
+        <label><input type="radio" name="tiles.style" value="robots" /> Robots</label>
+        <label><input type="radio" name="tiles.style" value="shapes" /> Shapes</label>
+        <label><input type="radio" name="tiles.style" value="emoji" /> Emoji</label>
+        <label><input type="radio" name="tiles.style" value="images" /> Images</label>
+        <label><input type="radio" name="tiles.style" value="none" /> None</label>
+      </div>
+      <label id="itemsField">Items <textarea name="tiles.items" rows="2"></textarea><small id="itemsHint">One per line or comma-separated.</small></label>
+      <label id="imagesField" class="file" hidden>Tile images <input type="file" id="tileFiles" accept="image/*" multiple /></label>
+    </section>
+
+    <section>
+      <h2>Show</h2>
+      <div class="chips" id="platformChips"></div>
+    </section>
+
+    <p class="foot">Everything runs in your browser. Nothing is uploaded. Prefer the terminal? <a href="https://github.com/nexibeo/brandshot#cli" target="_blank" rel="noopener">Use the CLI</a>.</p>
+  </form>
+
+  <section class="previews" id="previews" aria-live="polite"></section>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module" src="studio.js"></script>
+</body>
+</html>

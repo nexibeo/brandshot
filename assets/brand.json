@@ -1,0 +1,18 @@
+{
+  "name": "brandshot",
+  "wordmark": "brand*shot*",
+  "headline": "Every social image,\nfrom *one brand config*",
+  "tagline": "YouTube · Instagram · LinkedIn · X · Facebook · TikTok · Bluesky · Pinterest",
+  "url": "github.com/nexibeo/brandshot",
+  "logo": "icon.svg",
+  "theme": {
+    "background": "#0E1116",
+    "text": "#E6EAF0",
+    "muted": "#8D99A9",
+    "accent": "#FF7A1A",
+    "accent2": "#35D6C3"
+  },
+  "palette": ["#FF7A1A", "#35D6C3", "#9A7BFF", "#FF5D8F", "#5BE08A", "#FFC857"],
+  "fonts": { "display": "Archivo:800", "mono": "IBM Plex Mono:500" },
+  "tiles": { "style": "shapes", "items": ["youtube", "instagram", "linkedin", "x", "facebook", "tiktok", "bluesky", "pinterest", "og", "github", "threads", "studio"] }
+}

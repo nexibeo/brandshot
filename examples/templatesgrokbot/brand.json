@@ -1,0 +1,22 @@
+{
+  "name": "TemplatesGrokBot",
+  "wordmark": "templates*grokbot*",
+  "headline": "A parts catalog for\n*Grok Bot* teammates",
+  "url": "templatesgrokbot.com",
+  "logo": "logo.svg",
+  "theme": {
+    "background": "#0E1116",
+    "text": "#E6EAF0",
+    "muted": "#8D99A9",
+    "accent": "#FF7A1A",
+    "accent2": "#35D6C3"
+  },
+  "palette": ["#FF7A1A", "#35D6C3", "#9A7BFF", "#FF5D8F", "#5BE08A", "#FFC857", "#5AA9FF", "#FF8A5B"],
+  "fonts": { "display": "Archivo:800", "mono": "IBM Plex Mono:500" },
+  "tiles": {
+    "style": "robots",
+    "items": ["inbox triage", "code reviewer", "market scout", "deal desk", "trip planner", "churn radar",
+              "release notes", "sql tutor", "meeting scribe", "ad copy lab", "bug triage", "onboarding buddy",
+              "contract redline", "growth analyst", "support macro", "recruiter screen", "seo auditor", "pitch coach"]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Northwind Coffee",
+  "wordmark": "northwind *coffee*",
+  "headline": "Small-batch beans,\nroasted *every Monday*",
+  "tagline": "Delivered fresh across the Netherlands",
+  "url": "northwind.coffee",
+  "theme": {
+    "background": "#F6F1EA",
+    "text": "#2B1D14",
+    "muted": "#7A6557",
+    "accent": "#C2562B",
+    "accent2": "#3F7D5C"
+  },
+  "palette": ["#C2562B", "#3F7D5C", "#D9A441", "#8A5A44"],
+  "fonts": { "display": "Fraunces:700", "mono": "DM Mono:500" },
+  "tiles": { "style": "shapes", "items": ["ethiopia", "colombia", "kenya", "brazil", "guatemala", "sumatra", "peru", "rwanda", "honduras", "yemen", "burundi", "panama"] }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Lumen Studio",
+  "wordmark": "lumen*.*studio",
+  "headline": "We design *brands and websites* for founders who ship fast",
+  "url": "lumen.studio",
+  "theme": {
+    "background": "#120B2E",
+    "text": "#F3EEFF",
+    "muted": "#A99BD6",
+    "accent": "#B8FF5C",
+    "accent2": "#7C5CFF"
+  },
+  "palette": ["#B8FF5C", "#7C5CFF", "#FF6BB5", "#5CE1FF"],
+  "fonts": { "display": "Space Grotesk:700", "mono": "JetBrains Mono:500" },
+  "tiles": { "style": "emoji", "items": ["✦", "🎨", "⚡", "🧭", "💡", "🚀", "✏️", "🔮", "🌈", "📐", "🪄", "🛰️"] }
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/nexibeo/brandshot/main/brand.schema.json",
+  "title": "brandshot brand config",
+  "description": "One brand, rendered into every social media profile picture, banner and post. See skills/brandshot/references/brand-config.md.",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+    "name": { "type": "string", "description": "Brand name; used for the monogram and file names." },
+    "wordmark": { "type": "string", "description": "Text beside the logo. *part* is drawn in the accent colour." },
+    "headline": { "type": "string", "description": "Main line. \\n forces a line break (lines then never wrap); *part* is the accent colour." },
+    "tagline": { "type": "string" },
+    "url": { "type": "string" },
+    "logo": { "type": "string", "description": "File path relative to brand.json, inline <svg>, data: URL or https: URL." },
+    "monogram": { "type": "string", "maxLength": 3 },
+    "theme": {
+      "type": "object",
+      "properties": {
+        "background": { "$ref": "#/$defs/color" },
+        "text": { "$ref": "#/$defs/color" },
+        "muted": { "$ref": "#/$defs/color" },
+        "accent": { "$ref": "#/$defs/color" },
+        "accent2": { "$ref": "#/$defs/color" },
+        "grid": { "$ref": "#/$defs/color" }
+      },
+      "additionalProperties": false
+    },
+    "palette": { "type": "array", "items": { "$ref": "#/$defs/color" } },
+    "fonts": {
+      "type": "object",
+      "properties": {
+        "display": { "$ref": "#/$defs/font" },
+        "mono": { "$ref": "#/$defs/font" },
+        "google": { "type": "boolean", "description": "false = only use locally installed fonts." }
+      },
+      "additionalProperties": false
+    },
+    "tiles": {
+      "type": "object",
+      "properties": {
+        "style": { "enum": ["robots", "shapes", "emoji", "images", "none"] },
+        "items": { "type": "array", "items": { "type": "string" }, "description": "Seeds (robots, shapes), emoji, or image paths/URLs (images)." },
+        "images": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "background": {
+      "type": "object",
+      "properties": { "grid": { "type": "boolean" }, "glow": { "type": "boolean" } },
+      "additionalProperties": false
+    }
+  },
+  "required": ["name"],
+  "additionalProperties": false,
+  "$defs": {
+    "color": { "type": "string", "pattern": "^#([0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$" },
+    "font": {
+      "oneOf": [
+        { "type": "string", "pattern": "^[^:]+(:[1-9]00)?$", "description": "\"Family\" or \"Family:weight\"" },
+        { "type": "object", "properties": { "family": { "type": "string" }, "weight": { "type": "integer" } }, "required": ["family"] }
+      ]
+    }
+  }
+}

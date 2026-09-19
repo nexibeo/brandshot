@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+# default CLI output when run from the repo root
+/brandshot/
+/*.zip
+examples/*/out/

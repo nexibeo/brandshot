@@ -1,0 +1,12 @@
+{
+  "name": "brandshot",
+  "owner": { "name": "Jeroen Erne", "url": "https://nexibeo.com" },
+  "plugins": [
+    {
+      "name": "brandshot",
+      "source": "./",
+      "description": "Make a brand's social media profile pictures, banners, posts and bios at each platform's exact size.",
+      "version": "1.0.0"
+    }
+  ]
+}

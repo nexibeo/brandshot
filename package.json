@@ -1,0 +1,22 @@
+{
+  "name": "brandshot",
+  "version": "1.0.0",
+  "description": "One brand config → every social profile picture, banner and post at each platform's exact spec. CLI, browser studio, Claude skill and ChatGPT skill.",
+  "type": "module",
+  "bin": { "brandshot": "bin/brandshot.mjs" },
+  "files": ["bin", "src", "brand.example.json", "brand.schema.json"],
+  "scripts": {
+    "start": "node bin/brandshot.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check",
+    "test": "node --test",
+    "examples": "for d in examples/*/; do node bin/brandshot.mjs --config \"$d/brand.json\" --out \"$d/out\"; done"
+  },
+  "engines": { "node": ">=18" },
+  "repository": { "type": "git", "url": "git+https://github.com/nexibeo/brandshot.git" },
+  "homepage": "https://nexibeo.github.io/brandshot/studio/",
+  "bugs": "https://github.com/nexibeo/brandshot/issues",
+  "keywords": ["social-media", "banner", "youtube-banner", "linkedin-banner", "twitter-header", "instagram", "og-image", "open-graph", "brand-kit", "headless-chrome", "claude-skills", "agent-skills", "chatgpt"],
+  "author": "Jeroen Erne (https://nexibeo.com)",
+  "license": "MIT"
+}
