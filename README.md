@@ -174,7 +174,7 @@ Platforms change their specs. If an image is cropped wrong somewhere, open an is
 
 ## Credits
 
-Created by **Jeroen Erne** ([nexibeo.com](https://nexibeo.com) · [completeaitraining.com](https://completeaitraining.com)), built together with Claude.
+Created by **[Jeroen Erne](https://www.linkedin.com/in/jeroenerne/)** ([nexibeo.com](https://nexibeo.com) · [completeaitraining.com](https://completeaitraining.com)), built together with Claude.
 
 ## License
 
